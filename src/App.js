@@ -3,6 +3,7 @@ import Orders from './modules/Orders';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout, Image } from 'antd';
 import SideMenu from '../src/components/SideMenu';
+import RestaurantMenu from './modules/RestaurantMenu';
 
 const { Sider, Content, Footer } = Layout;
 
@@ -16,12 +17,13 @@ function App() {
             preview={false}
           />
 
-          <SideMenu/>
+          <SideMenu />
         </Sider>
         <Layout>
           <Content>
             <Routes>
               <Route path='' element={<Orders />} />
+              <Route path='menu' element={<RestaurantMenu />} />
               <Route path='order/:id' element={<DetailedOrder />} />
             </Routes>
           </Content>
