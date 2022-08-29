@@ -1,10 +1,8 @@
-import DetailedOrder from './modules/DetailedOrder';
-import Orders from './modules/Orders';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Layout, Image } from 'antd';
+import AppRoutes from './components/AppRoutes';
 import SideMenu from '../src/components/SideMenu';
-import RestaurantMenu from './modules/RestaurantMenu';
-import CreateMenuItem from './modules/CreateMenuItem';
+
 
 const { Sider, Content, Footer } = Layout;
 
@@ -22,12 +20,7 @@ function App() {
         </Sider>
         <Layout>
           <Content>
-            <Routes>
-              <Route path='' element={<Orders />} />
-              <Route path='menu' element={<RestaurantMenu />} />
-              <Route path='order/:id' element={<DetailedOrder />} />
-              <Route path='menu/create' element={<CreateMenuItem />} />
-            </Routes>
+           <AppRoutes/>
           </Content>
 
           <Footer style={{ textAlign: "center" }}>
