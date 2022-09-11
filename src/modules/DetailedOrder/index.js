@@ -32,10 +32,8 @@ const DetailedOrder = () => {
         }
 
         DataStore.query(OrderDish, c => c.orderID("eq", order?.id)).then(e => {
-            console.log(e);
             setDishes(e);
         });
-        console.log(dishes);
     }, [order?.id]);
 
     if (!order) {

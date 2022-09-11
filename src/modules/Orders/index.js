@@ -21,7 +21,6 @@ const Orders = () => {
       .status("eq", "NEW").status("eq", "COOCKING").status("eq", "READY_FOR_PICKUP").status("eq", "ACCEPTED")))
       .then(setOrders);
 
-      console.log(orders);
   }, [restaurant])
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const Orders = () => {
     const suscription = DataStore.observe(Order).subscribe(msg => {
       const {onType, element} = msg;
 
-      if (onType === 'INSERT' && element,orderRestaurantId === restaurant.id) {
+      if (onType === 'INSERT' && element.orderRestaurantId === restaurant.id) {
         setOrders((existingOrders) => [element, ...existingOrders])
       }
     });

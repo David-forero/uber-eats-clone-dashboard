@@ -19,7 +19,6 @@ const Settings = () => {
     };
 
     useEffect(() => {
-        console.log('There is a restaurant 👨‍🍳', restaurant);
       if (restaurant) {
         setName(restaurant.name);
         setCoordinates({lat: restaurant.lat, lng: restaurant.lng})

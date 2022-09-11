@@ -26,7 +26,6 @@ const OrderHistory = () => {
         )
     ).then(setOrders);
   
-        console.log(orders);
     }, [restaurant])
     
     const renderOrderStatus = (orderStatus) => {
