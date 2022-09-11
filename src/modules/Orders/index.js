@@ -15,7 +15,6 @@ const Orders = () => {
     if (!restaurant) {
       return;
     }
-    console.log(restaurant.id);
     DataStore
     .query(Order, (order) => order.orderRestaurantId("eq", restaurant.id)
     .or(orderStatus => orderStatus
@@ -24,6 +23,20 @@ const Orders = () => {
 
       console.log(orders);
   }, [restaurant])
+
+  useEffect(() => {
+    
+    const suscription = DataStore.observe(Order).subscribe(msg => {
+      const {onType, element} = msg;
+
+      if (onType === 'INSERT' && element,orderRestaurantId === restaurant.id) {
+        setOrders((existingOrders) => [element, ...existingOrders])
+      }
+    });
+
+    return () => suscription.unsubscribe();
+  }, [])
+  
   
 
   const renderOrderStatus = (orderStatus) => {
